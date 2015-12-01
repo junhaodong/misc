@@ -16,11 +16,15 @@
 ; - 'down
 
 ; Length of the line
-(define LEN 5)
+(define LEN 2)
 
-; Screen Size...
-(define W 850)
-(define H 850)
+; Screen Size
+(define W 600)
+(define H 600)
+
+; Starting position of the fractal
+(define STARTX 450)
+(define STARTY 200)
  
 ; rotate-dir : Dir -> Dir
 (define (rotate-dir dir)
@@ -40,6 +44,13 @@
         [(symbol=? dir 'up) (make-posn x (- y amt))]
         [(symbol=? dir 'down) (make-posn x (+ y amt))]))
 
+; in-bound? : Number Number -> Boolean
+(define (in-bound? x y)
+  (and (> x 0)
+       (< x W)
+       (> y 0)
+       (< y H)))
+
 ; draw-dirs : [List-of Dir] Number Number Image -> Image
 (define (draw-dirs lodir x y im)
   (cond [(empty? lodir) im]
@@ -49,10 +60,14 @@
                                 (add-line im x y
                                           newx newy
                                           "black")))]))
+                     
 
 ; dragon : [List-of Dir] Number -> [List-of Dir]
 ; Compute the next iteration of the Jurassic Fractal, given a [List-of Dir]
-;   and the number of iterations left.(check-expect (dragon '(down) 0) '(down))
+;   and the number of iterations left.
+; The next iteration is computed by appending
+;   the reversed, rotated list to the end of the original list. 
+(check-expect (dragon '(down) 0) '(down))
 (check-expect (dragon '(down) 1) '(down right))
 (check-expect (dragon '(down) 2) '(down right up right))
 (check-expect (dragon '(down) 3) '(down right up right up left up right))
@@ -65,11 +80,12 @@
 ; draw : World -> Image
 (define (draw w)
   (local [(define lst (dragon '(down) w))]
-    (draw-dirs lst (/ W 2) (/ H 2) (empty-scene W H))))
+    (draw-dirs lst STARTX STARTY (empty-scene W H))))
  
 ; key : World KeyEvent -> World
 (define (key w ke)
-  (cond [(key=? ke "up") (add1 w)]
+  (cond [(and (key=? ke "up") (<= w 15))
+         (add1 w)]
         [(and (key=? ke "down") (> w 1))
          (sub1 w)]
         [else w]))
@@ -77,4 +93,3 @@
 (big-bang 0
           (to-draw draw)
           (on-key key))
-
