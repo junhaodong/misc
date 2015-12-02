@@ -1,16 +1,24 @@
 # fractals
 
-Dragon
-15 iters
+Fun with fractals!
 
-Sierpinski's Triangle
-9 iters
+#### Dragon Curve
+15 iterations
+![Dragon Curve](img/dragon.png)
 
-Sierpinski's Carpet
-10 iters
+#### Sierpinski's Triangle
+9 iterations
+![Sierpinski's Triangle](img/sierpinski-triangle.png)
 
-Koch Snowflake
+#### Sierpinski's Carpet
+10 iterations
+![Sierpinski's Carpet](img/sierpinski-carpet.png)
 
-Mass Center Triangle
 
-Trees
+To-do List
+-------
+- [ ] Tiling dragon curves
+- [ ] Koch Snowflake
+- [ ] Mass Center Triangle
+- [ ] Levy C Curve
+- [ ] Play with coloring
