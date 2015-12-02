@@ -14,6 +14,8 @@ Fun with fractals!
 10 iterations
 ![Sierpinski's Carpet](img/sierpinski-carpet.png)
 
+#### Simple Tree
+![Simple Tree](img/tree.png)
 
 To-do List
 -------
