@@ -4,8 +4,8 @@
 (require 2htdp/image)
 (require 2htdp/universe)
 
-(define W 350)
-(define H 350)
+(define W 400)
+(define H 400)
 (define BG (empty-scene W H))
 
 ; put-line : Number Number Number Number String Scene -> Scene
@@ -23,21 +23,22 @@
 ;   onto the scene.
 ; `ang1` and `ang2` subject to change -- try (/ pi 3)
 (define (tree x y ang len scn)
-  (cond [(< len 4) (put-line x y ang len "green" scn)]
+  (cond [(< len 3) (put-line x y ang len "green" scn)]
         [else (local [(define x1 (+ x (* (/ len 3) (cos ang))))
                       (define y1 (+ y (* (/ len 3) (sin ang))))
                       (define ang1 (+ ang (/ pi 6)))
                       (define x2 (+ x (* 2 (/ len 3) (cos ang))))
                       (define y2 (+ y (* 2 (/ len 3) (sin ang))))
-                      (define ang2 (- ang (/ pi 6)))]
+                      (define ang2 (- ang (/ pi 6)))
+                      (define newLen (* 2 (/ len 3)))]
                      (put-line x y
                                ang len
                                "brown" 
-                               (tree x1 y1 ang1 (/ len 2)
-                                     (tree x2 y2 ang2 (/ len 2)
+                               (tree x1 y1 ang1 newLen
+                                     (tree x2 y2 ang2 newLen
                                            scn))))]))
 
 (define myTree (lambda (len) 
-                 (tree 0 (/ H 2) 0 len BG)))
-(big-bang 300
+                 (tree (/ W 2) H (* pi 1.5) len BG)))
+(big-bang 200
           (to-draw myTree))
