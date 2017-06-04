@@ -17,7 +17,7 @@ Fun with fractals!
 #### Simple Tree
 ![Simple Tree](img/tree.png)
 
-To-do List
+Todo
 -------
 - [ ] Tiling dragon curves
 - [ ] Koch Snowflake
