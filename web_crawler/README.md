@@ -3,7 +3,7 @@
 A command line program that takes an internet domain name (i.e. "jana.com") and an optional maximum integer number of pages to search.  
 Prints out a list of the email addresses found on that given domain, refraining from visiting separate domains.
 
-![Sample code output](img/emailCrawler.png)
+![Sample code output](https://user-images.githubusercontent.com/5431678/31203602-22c794e0-a968-11e7-9fdb-a921c5638266.png)
 
 ## Requirements
 
