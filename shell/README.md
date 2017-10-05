@@ -1,8 +1,10 @@
 Shellfish
 ======
-Tested on Linux (Ubuntu) environment, Fall 2014
+Fall 2014
 
-Run with `make`
+Runs on Linux/macOS
+
+Compile with `make`, run with `./shell`
 Exit with `exit`, `quit`, or Ctrl-D at the start of a line
 
 ## Basic Features

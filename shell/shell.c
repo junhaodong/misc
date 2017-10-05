@@ -27,14 +27,12 @@ static void sigHandler(int signo) {
 
 void printPrompt() {
   char *cwd = 0;
-  cwd = getcwd(cwd,0);
+  cwd = getcwd(cwd, 0);
   // Replace $HOME with '~'
-  if (strstr(cwd,HOME)) {
+  if (strstr(cwd, HOME)) {
     int homeLen = strlen(HOME);
-    int relPathLen = strlen(cwd)-homeLen+1;
-    strncpy(cwd, &cwd[homeLen-1], relPathLen);
+    cwd = &cwd[homeLen-1];
     cwd[0] = '~';
-    cwd[relPathLen] = '\0';
   }
   char hostname[BUFFER_LEN];
   gethostname(hostname, BUFFER_LEN-1);
@@ -42,7 +40,6 @@ void printPrompt() {
   printf(WHITE ":");
   printf(YELLOW "%s$\n", cwd);
   printf(BLUE "><((((º> " RESET);
-  free(cwd);
 }
 
 // Trim white space and ';' from *str

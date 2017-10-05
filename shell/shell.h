@@ -8,6 +8,7 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <signal.h>
+#include <ctype.h>
 
 #define TRUE 1
 #define FALSE 0
