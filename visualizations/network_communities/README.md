@@ -17,10 +17,12 @@ Setting the average degree (average out-degree + average in-degree) to 16, the g
 <img src="https://user-images.githubusercontent.com/5431678/34019921-70a6a25e-e131-11e7-8f29-d919d7b85337.png"
 	alt="Plot of Avg Out-Degree" height="350px" />
 
-The detected communties in our benchmark network of 4 communities, 32 nodes each.
+    
+The detected communties in our benchmark network of 4 communities, 32 nodes each.  
 <img src="https://user-images.githubusercontent.com/5431678/34020187-1107dea6-e133-11e7-8e31-df276c7ad94b.png"
 	alt="Found Communities in Benchmark Network" height="350px" />
 
-The detected communties in a protein network.
+    
+The detected communties in a protein network.  
 <img src="https://user-images.githubusercontent.com/5431678/34020188-13628ac0-e133-11e7-8334-ab41c77fd7e3.png"
 	alt="Found Communities in Protein Network" height="350px" />
